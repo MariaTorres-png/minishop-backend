@@ -27,7 +27,7 @@ def crear_usuario():
                     "nombre_usuario": usuario_existente.nombre_usuario,
                     "email": usuario_existente.email
                 }
-            }), 200
+            }), 409
 
         # Crear nuevo usuario
         nuevo_usuario = Usuario(nombre_usuario=nombre, email=email)

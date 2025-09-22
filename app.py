@@ -7,7 +7,6 @@ from routes.usuarios import usuarios_bp
 from routes.pedidos import pedido_bp
 
 
-
 # Crear la aplicación Flask
 app = Flask(__name__)
 

@@ -22,9 +22,10 @@ class Pedido(db.Model):
     __tablename__ = 'pedidos'
     id_pedido = db.Column(db.Integer, primary_key=True, autoincrement=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'), nullable=False)
-    fecha_pedido = db.Column(db.Date)
+    fecha_pedido = db.Column(db.DateTime, nullable=False)
     total = db.Column(db.Integer, nullable=False)
     usuario = db.relationship('Usuario', backref=db.backref('pedidos', lazy=True))
+
 
 class DetallePedido(db.Model):
     __tablename__ = 'detalles_pedido'
@@ -33,5 +34,5 @@ class DetallePedido(db.Model):
     id_producto = db.Column(db.Integer, db.ForeignKey('productos.id_producto'), nullable=False)
     cantidad = db.Column(db.Integer, nullable=False)
     precio_unitario = db.Column(db.Numeric(10, 2), nullable=False)
-    pedido = db.relationship('Pedido', backref=db.backref('detalles', lazy=True))
+    pedido = db.relationship('Pedido', backref=db.backref('detalles_pedido', lazy=True))
     producto = db.relationship('Producto')

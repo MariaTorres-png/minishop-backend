@@ -5,6 +5,7 @@ from modelo import db #Reminder de inicializar solo una vez SQLAlchemy
 from routes.productos import productos_bp
 from routes.usuarios import usuarios_bp
 from routes.pedidos import pedido_bp
+from routes.estadisticas import estadisticas_bp
 
 
 # Crear la aplicación Flask
@@ -20,6 +21,7 @@ db.init_app(app)
 app.register_blueprint(productos_bp)
 app.register_blueprint(usuarios_bp)
 app.register_blueprint(pedido_bp)
+app.register_blueprint(estadisticas_bp)
 
 @app.route('/')
 def home():

@@ -23,7 +23,7 @@ class Pedido(db.Model):
     id_pedido = db.Column(db.Integer, primary_key=True, autoincrement=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuarios.id_usuario'), nullable=False)
     fecha_pedido = db.Column(db.DateTime, nullable=False)
-    total = db.Column(db.Integer, nullable=False)
+    total = db.Column(db.Numeric(10, 2), nullable=False)
     usuario = db.relationship('Usuario', backref=db.backref('pedidos', lazy=True))
 
 

@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from modelo import db #Reminder de inicializar solo una vez SQLAlchemy
@@ -10,6 +11,8 @@ from routes.estadisticas import estadisticas_bp
 
 # Crear la aplicación Flask
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}) # Configurar CORS para permitir solicitudes desde el frontend
 
 # Cargar la configuración desde config.py
 app.config.from_object(Config)

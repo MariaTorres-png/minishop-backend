@@ -12,7 +12,7 @@ from routes.estadisticas import estadisticas_bp
 # Crear la aplicación Flask
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}) # Configurar CORS para permitir solicitudes desde el frontend
+CORS(app, origins=["https://minishop-project.onrender.com"])
 
 # Cargar la configuración desde config.py
 app.config.from_object(Config)
